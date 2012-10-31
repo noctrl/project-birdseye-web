@@ -7,4 +7,5 @@ __author__ = 'mjholler'
 
 app = webapp2.WSGIApplication([
     ('/', test_handler.HelloBirdseye),
+    ('/path', test_handler.HelloBirdseye),
 ], debug=True)
