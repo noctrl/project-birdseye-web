@@ -67,7 +67,7 @@ class Sensor(Base):
 
     # Many-to-one
     lot_id = Column(Integer, ForeignKey('lot.id'))
-    lot = relationship="Lot", backref=backref("lots", order_by=id)
+    lot = relationship("Lot", backref=backref("lots", order_by=id))
 
     def __init__(self, name, location, created, active):
         self.name = name
