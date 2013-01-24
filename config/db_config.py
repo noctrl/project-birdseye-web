@@ -1,6 +1,7 @@
 __author__ = 'mjholler'
 
-class Database:
+
+class DB_Config:
     HOST = 'localhost'
     SCHEMA = 'birdseye'
     USER = 'birdseye'
