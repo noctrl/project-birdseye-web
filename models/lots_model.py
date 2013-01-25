@@ -14,7 +14,7 @@ class Lots:
     def __init__(self):
         self.engine = database.engine
         self.meta = database.meta
-        self.table = self.meta.tables['lots']
+        self.table = self.meta.tables['Lots']
 
     def read_lots(self):
         sql = """SELECT * FROM Lots"""
