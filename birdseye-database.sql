@@ -2,10 +2,10 @@ DROP SCHEMA IF EXISTS birdseye;
 
 CREATE SCHEMA birdseye CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-DROP TABLE IF EXISTS birdseye.Sensors;
-DROP TABLE IF EXISTS birdseye.Lots;
+DROP TABLE IF EXISTS birdseye.sensors;
+DROP TABLE IF EXISTS birdseye.lots;
 
-CREATE TABLE birdseye.Lots (
+CREATE TABLE birdseye.lots (
   lot_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(256) NOT NULL,
   description TEXT,
@@ -17,7 +17,7 @@ CREATE TABLE birdseye.Lots (
   PRIMARY KEY (lot_id)
 );
 
-CREATE TABLE birdseye.Sensors (
+CREATE TABLE birdseye.sensors (
   sensor_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   name VARCHAR(256) NOT NULL,
   description TEXT,
@@ -26,5 +26,5 @@ CREATE TABLE birdseye.Sensors (
   active BOOL NOT NULL DEFAULT 1,
   created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (sensor_id),
-  FOREIGN KEY (lot_id) REFERENCES Lots(lot_id)
+  FOREIGN KEY (lot_id) REFERENCES lots(lot_id)
 );

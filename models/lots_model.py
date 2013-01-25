@@ -18,14 +18,14 @@ class Lots:
         self.table = self.meta.tables['lots']
 
     def read_lots(self):
-        sql = """SELECT * FROM Lots"""
+        sql = """SELECT * FROM lots"""
         result = self.engine.execute(text(sql))
 
         return [dict(row) for row in result]
 
     def read_lot(self, lot_id):
 #        result = self.engine.execute(self.table.select(self.table.c.lot_id == lot_id))
-        result = self.engine.execute('select * from Lots where lot_id = %s', lot_id)
+        result = self.engine.execute('select * from lots where lot_id = %s', lot_id)
 
         lot = result.fetchone()
         return dict(lot) if lot else None
