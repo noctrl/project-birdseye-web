@@ -1,10 +1,8 @@
 __author__ = 'mjholler'
 
 import webapp2
-import json
-
+from helpers.sql_helpers import jsonize
 import models.lots_model as lots_model
-import helpers.sql_helpers as sql_helpers
 
 
 class Lot(webapp2.RequestHandler):
@@ -14,7 +12,7 @@ class Lot(webapp2.RequestHandler):
         lot = lots_table.read_lot(lot_id)
 
         if lot:
-            self.response.write(json.dumps(lot, default=sql_helpers.dthandler))
+            self.response.write(jsonize(lot))
         else:
             self.response.set_status(404)
             self.response.write("404 Not Found - lot_id = {id}".format(id=lot_id))

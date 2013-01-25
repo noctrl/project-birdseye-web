@@ -18,15 +18,7 @@ def result2array(result):
     return a
 
 
-class DBRow(dict):
-    def __init__(self, *args, **kw):
-        super(DBRow, self).__init__(*args, **kw)
-
-    def json(self):
-        dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime.datetime) else None
-        return json.dumps(self, default=dthandler)
-
-if __name__ == '__main__':
-    a = DBRow({'hello': 'steve'})
-    print a.json()
+def jsonize(obj):
+    dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime.datetime) else None
+    return json.dumps(obj, default=dthandler)
 
