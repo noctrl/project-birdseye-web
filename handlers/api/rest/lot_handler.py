@@ -1,3 +1,5 @@
+from libraries.auth import require_authentication
+
 __author__ = 'mjholler'
 
 import webapp2
@@ -16,3 +18,15 @@ class Lot(webapp2.RequestHandler):
         else:
             self.response.set_status(404)
             self.response.write("404 Not Found - lot_id = {id}".format(id=lot_id))
+
+    @require_authentication
+    def post(self):
+        pass
+
+    @require_authentication
+    def put(self):
+        pass
+
+    @require_authentication
+    def delete(self):
+        pass

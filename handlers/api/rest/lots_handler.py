@@ -1,4 +1,5 @@
 from helpers.sql_helpers import jsonize
+from libraries.auth import require_authentication
 
 __author__ = 'mjholler'
 
