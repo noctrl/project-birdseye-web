@@ -6,6 +6,8 @@ import webapp2
 from helpers.sql_helpers import jsonize
 import models.lots_model as lots_model
 
+import json
+
 
 class Lot(webapp2.RequestHandler):
 
@@ -23,9 +25,14 @@ class Lot(webapp2.RequestHandler):
     def post(self):
         pass
 
-    @require_authentication
-    def put(self):
-        pass
+    def put(self, lot_id):
+
+        lots_table = lots_model.Lots()
+
+        body = json.loads(self.request.body)
+        lots_table.create_lot(**body)
+
+        print 'hai guise'
 
     @require_authentication
     def delete(self):

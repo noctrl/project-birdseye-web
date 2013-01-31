@@ -7,6 +7,7 @@ import datetime
 from sqlalchemy import text
 
 import database
+from helpers.sql_helpers import generate_insert_sql
 
 
 class Lots:
@@ -29,4 +30,16 @@ class Lots:
 
         lot = result.fetchone()
         return dict(lot) if lot else None
+
+    def create_lot(self, **kwargs):
+        sql = generate_insert_sql('lots', **kwargs)
+
+        result = self.engine.execute(sql)
+
+#        sql = """INSERT INTO lots (`name`, `description`, `location`, `spaces_available`, `total_spaces`)
+#                 VALUES (%(name)s, %(description)s, %(location)s, %(spaces_available)s, %(total_spaces)s)
+#        """
+
+#        result = self.engine.execute(sql)
+
 
